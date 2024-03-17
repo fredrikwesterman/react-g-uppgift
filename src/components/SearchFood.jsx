@@ -9,8 +9,8 @@ const SearchFood = () => {
 
     const getFood = () => {
         fetch('www.themealdb.com/api/json/v1/1/search.php?s=' + foodSearchInput.current.value)
-            .then(resp => resp.json())
-            .then(data => setTheFood(data))
+            .then((resp) => resp.json())
+            .then((data) => setTheFood(data))
             console.log(theFood)
     }
     
