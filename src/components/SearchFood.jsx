@@ -1,25 +1,25 @@
 import { useRef, useEffect, useState } from 'react'
-import DisplayFood from './DisplayFood'
+import FoodList from './FoodList'
 
 const SearchFood = () => {
 
-    const [theFood, setTheFood] = useState([])
+    const [meals, setMeals] = useState(null)
+    const [mealId, setMealId] = useState(null)
 
     const foodSearchInput = useRef()
 
-    const getFood = () => {
-        fetch('www.themealdb.com/api/json/v1/1/search.php?s=' + foodSearchInput.current.value)
+    const getFoodList = () => {
+        fetch('https://www.themealdb.com/api/json/v1/1/search.php?s=' + foodSearchInput.current.value)
             .then((resp) => resp.json())
-            .then((data) => setTheFood(data))
-            console.log(theFood)
+            .then((data) => setMeals(data))
+            console.log(meals)
     }
-    
 
   return (
     <>
     <input ref={foodSearchInput} type="text" placeholder='type food' />
-    <button onClick={getFood}>Search</button>
-    {theFood && <DisplayFood food={theFood} />}
+    <button onClick={getFoodList}>Search</button>
+    {meals && <FoodList food={meals} />}
     </>
   )
 }
