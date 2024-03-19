@@ -4,7 +4,6 @@ import FoodList from './FoodList'
 const SearchFood = () => {
 
     const [meals, setMeals] = useState(null)
-    const [mealId, setMealId] = useState(null)
 
     const foodSearchInput = useRef()
 

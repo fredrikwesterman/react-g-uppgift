@@ -1,22 +1,32 @@
+import DisplaySingleMeal from "./DisplaySingleMeal"
+import { useState } from 'react'
+
 const FoodList = ({ food }) => {
 
-  // console.log(food)
+  const [selectedMeal, setSelectedMeal] = useState(null)
+
   const displayFoodDetails = (meal) => {
-    console.log(meal)
-    // TODO: Send this through props or handle right here?? I have the current object now from the map function because it loops through and takes the present object to this function
+    setSelectedMeal(meal)
+    console.log(selectedMeal)
   }
 
   return (
-    <div>
-      <ul>
-        {food.meals.map((meal) => (
-          <li key={meal.idMeal} onClick={() => displayFoodDetails(meal)}>
-            <img src={meal.strMealThumb} alt={meal.strMeal} style={{width: "100px", height: "100px"}}/>
-            <h3>{meal.strMeal}</h3>
-          </li>
-        ))}
-      </ul>
+    <div style={{display: "flex"}}>
+      <div>
+        <ul>
+          {food.meals.map((meal) => (
+            <li key={meal.idMeal} onClick={() => displayFoodDetails(meal)}>
+              <img src={meal.strMealThumb} alt={meal.strMeal} style={{width: "100px", height: "100px"}}/>
+              <h3>{meal.strMeal}</h3>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        {selectedMeal && <DisplaySingleMeal meal={selectedMeal}/>}
+      </div>
     </div>
+
     
   )
 }
