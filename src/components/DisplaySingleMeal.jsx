@@ -1,28 +1,24 @@
-import { useState } from 'react'
-
 const DisplaySingleMeal = ({ meal }) => {
 
-    const ingredients = []
-    const measurements = []
+    const ingredients = Object.keys(meal).filter((key) => key.includes('strIngredient'))
+    .map(key => meal[key]).filter(ingredient => ingredient.trim() !== "")
 
-    for(let i = 1; i <= 20; i++){
-        ingredients.push(meal[`strIngredient&{i}`])
-        measurements.push(meal[`strMeasure&{i}`])
-    }
-
-    console.log(ingredients)
-    console.log(measurements)
-
+    const measurements = Object.keys(meal).filter((key) => key.includes('strMeasure'))
+    .map(key => meal[key])
+        
     return (
         <>
-            <h2>{meal.strMeal}</h2>
+            <div>
+                <h2>{meal.strMeal}</h2>
+                <i>{meal.strArea}</i>
+            </div>
             <img src={meal.strMealThumb} alt={meal.strMeal} />
-            <p>{meal.strInstructions}</p>
             <ul>
                 {ingredients.map((ing, idx) => (
                     <li key={idx}>{ing} - {measurements[idx]}</li>
-                ))}
+                    ))}
             </ul>
+            <p>{meal.strInstructions}</p>
         </>
     )
 }
