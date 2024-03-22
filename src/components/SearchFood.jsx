@@ -32,7 +32,7 @@ const SearchFood = () => {
     <button onClick={getFoodList}>Search</button>
     {meals && 
       <>
-        <button onClick={resetList}>Back</button>
+        <button onClick={resetList}>Reset Search</button>
         <FoodList food={meals} />
       </>
     }

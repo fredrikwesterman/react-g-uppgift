@@ -1,11 +1,14 @@
-const DisplaySingleMeal = ({ meal }) => {
+const DisplaySingleMeal = ({ meal, OpenModal }) => {
+
+    console.log(meal)
 
     const ingredients = Object.keys(meal)
     .filter((key) => key.includes('strIngredient'))
     .map(key => meal[key])
     .filter(ingredient => ingredient.trim())
 
-    const measurements = Object.keys(meal).filter((key) => key.includes('strMeasure'))
+    const measurements = Object.keys(meal)
+    .filter((key) => key.includes('strMeasure'))
     .map(key => meal[key])
         
     return (
@@ -13,6 +16,7 @@ const DisplaySingleMeal = ({ meal }) => {
             <div>
                 <h2>{meal.strMeal}</h2>
                 <i>{meal.strArea}</i>
+                <button onClick={() => OpenModal(false)}>❌</button>
             </div>
             <img src={meal.strMealThumb} alt={meal.strMeal} />
             <ul>
