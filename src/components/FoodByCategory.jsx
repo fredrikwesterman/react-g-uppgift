@@ -4,13 +4,14 @@ import DisplaySingleMeal from "./DisplaySingleMeal"
 const FoodByCategory = ({ categoryMeals }) => {
 
     const [singleMeal, setSingleMeal] = useState(null)
+    const [openModal, setOpenModal] = useState(false)
 
     const displaySingleFood = (meal) => {
         console.log(meal)
         fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + meal.idMeal)
         .then((res) => res.json())
-        .then((data) => setSingleMeal(data.meals))
-        console.log(singleMeal)
+        .then((data) => setSingleMeal(data.meals[0]))
+        setOpenModal(true)
     }
 
   return (
@@ -23,7 +24,7 @@ const FoodByCategory = ({ categoryMeals }) => {
                 </li>
             ))}
         </ul>
-        {singleMeal && <DisplaySingleMeal meal={singleMeal} />}
+        {singleMeal && openModal && <DisplaySingleMeal meal={singleMeal} OpenModal={setOpenModal}/>}
     </div>
   )
 }

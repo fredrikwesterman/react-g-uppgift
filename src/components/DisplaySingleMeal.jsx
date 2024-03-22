@@ -5,7 +5,7 @@ const DisplaySingleMeal = ({ meal, OpenModal }) => {
     const ingredients = Object.keys(meal)
     .filter((key) => key.includes('strIngredient'))
     .map(key => meal[key])
-    .filter(ingredient => ingredient.trim())
+    .filter(ingredient => ingredient && ingredient.trim())
 
     const measurements = Object.keys(meal)
     .filter((key) => key.includes('strMeasure'))

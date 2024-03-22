@@ -4,7 +4,7 @@ import { useState } from 'react'
 const FoodList = ({ food }) => {
 
   const [selectedMeal, setSelectedMeal] = useState(null)
-  const [OpenModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
 
   const displayFoodDetails = (meal) => {
     setSelectedMeal(meal)
@@ -25,7 +25,7 @@ const FoodList = ({ food }) => {
         </ul>
       </div>
       <div>
-        {selectedMeal && OpenModal && <DisplaySingleMeal meal={selectedMeal} OpenModal={setOpenModal}/>}
+        {selectedMeal && openModal && <DisplaySingleMeal meal={selectedMeal} OpenModal={setOpenModal}/>}
       </div>
     </div>
   )
