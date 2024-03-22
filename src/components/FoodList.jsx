@@ -26,8 +26,6 @@ const FoodList = ({ food }) => {
         {selectedMeal && <DisplaySingleMeal meal={selectedMeal}/>}
       </div>
     </div>
-
-    
   )
 }
 
