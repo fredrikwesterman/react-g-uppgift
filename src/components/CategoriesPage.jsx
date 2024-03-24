@@ -3,6 +3,7 @@ import Categories from './Categories'
 import { useEffect, useState } from 'react'
 import Header from './Header'
 import SearchFood from './SearchFood'
+import Footer from './Footer'
 
 const CategoriesPage = () => {
 
@@ -20,6 +21,7 @@ const CategoriesPage = () => {
       
 
   return (
+  <>
     <div className='pageWrapper'>
       <Header />
       <SearchFood />
@@ -30,6 +32,8 @@ const CategoriesPage = () => {
           : <h2>{isLoading}</h2>
           }
   </div>
+      <Footer />
+  </>
   )
 }
 
