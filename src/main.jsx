@@ -1,10 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './components/App'
-import { BrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import CategoriesPage from './components/CategoriesPage'
+import NotFoundPage from './components/NotFoundPage'
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <App />,
+        errorElement: <NotFoundPage />
+    },
+    {
+        path: '/categories',
+        element: <CategoriesPage />,
+        errorElement: <NotFoundPage />
+    }
+])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-<BrowserRouter>
-    <App />
-</BrowserRouter>
+    <RouterProvider router={router} />
 )

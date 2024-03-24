@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import FoodList from './FoodList'
+import searchStyle from '../styles/SearchFood.module.css'
 
 const SearchFood = () => {
 
@@ -27,17 +28,21 @@ const SearchFood = () => {
     }
 
   return (
-    <>
-    <input ref={foodSearchInput} type="text" placeholder='Type a meal..' />
-    <button onClick={getFoodList}>Search</button>
-    {meals && 
-      <>
-        <button onClick={resetList}>Reset Search</button>
-        <FoodList food={meals} />
-      </>
-    }
-    {noResult && <div>No food 😔</div>}
-    </>
+    <div className={searchStyle.searchFoodWrapper}>
+      <div className={searchStyle.inputWrapper}>
+        <input ref={foodSearchInput} type="text" placeholder='Type a meal..' />
+        <button onClick={getFoodList}>Search</button>
+        <button onClick={resetList}>Reset</button>
+      </div>
+        {meals && 
+          <>
+            <div className={searchStyle.searchMealList}>
+              <FoodList food={meals} />
+            </div>
+          </>
+        }
+        {noResult && <div>No food 😔</div>}
+    </div>
   )
 }
 

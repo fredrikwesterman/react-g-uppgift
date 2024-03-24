@@ -1,3 +1,5 @@
+import searchStyle from '../styles/SearchFood.module.css'
+
 const DisplaySingleMeal = ({ meal, OpenModal }) => {
 
     console.log(meal)
@@ -12,20 +14,24 @@ const DisplaySingleMeal = ({ meal, OpenModal }) => {
     .map(key => meal[key])
         
     return (
-        <>
-            <div>
+        <div className={searchStyle.mealCardBig}>
+            <div className={searchStyle.bigCardHeading}>
                 <h2>{meal.strMeal}</h2>
-                <i>{meal.strArea}</i>
                 <button onClick={() => OpenModal(false)}>❌</button>
             </div>
-            <img src={meal.strMealThumb} alt={meal.strMeal} />
-            <ul>
-                {ingredients.map((ing, idx) => (
-                    <li key={idx}>{ing} - {measurements[idx]}</li>
-                    ))}
-            </ul>
-            <p>{meal.strInstructions}</p>
-        </>
+            <div className={searchStyle.cardLayout}>
+                <img src={meal.strMealThumb} alt={meal.strMeal} className={searchStyle.imgBig}/>
+                <ul>
+                <p>Ingredients:</p>
+                <br />
+                    {ingredients.map((ing, idx) => (
+                        <li key={idx}>{ing} - {measurements[idx]}</li>
+                        ))}
+                </ul>
+            </div>
+                <p><b>Cooking Instructions:</b></p>
+                <p>{meal.strInstructions}</p>
+        </div>
     )
 }
 

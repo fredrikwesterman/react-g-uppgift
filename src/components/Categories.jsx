@@ -18,18 +18,20 @@ const Categories = ({ categories }) => {
 
   return (
     <>
-        <ul>
+      <div>
+        <ul style={{display: "flex"}}>
             {categories.map(({ strCategory, idCategory }) => (
-                <li key={idCategory} onClick={() => listCategoryMeal(strCategory)}>
+              <li style={{margin: "10px"}} key={idCategory} onClick={() => listCategoryMeal(strCategory)}>
                 <h3>{strCategory}</h3>
-              </li>
+              </li> 
             ))}
         </ul>
+      </div>
         {categoryMeals && 
-        <>
-            <button onClick={resetMeals}>Back</button>
+        <div>
+            <button onClick={resetMeals}>Minimize Category</button>
             <FoodByCategory categoryMeals={categoryMeals} />
-        </>
+        </div>
         }
     </>
   )

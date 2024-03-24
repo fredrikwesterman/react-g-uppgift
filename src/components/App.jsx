@@ -1,33 +1,22 @@
 import '../styles/App.css'
-import Categories from './Categories'
+import Header from './Header'
 import SearchFood from './SearchFood'
-import { useEffect, useState } from 'react'
+import pancakesImg from '../img/pancakes.jfif'
 
 function App() {
 
-  const [categories, setCategories] = useState(null)
-  const [isLoading, setIsLoading] = useState("Categories Loading....")
-
-  useEffect(() => {
-    fetch('https://www.themealdb.com/api/json/v1/1/categories.php')
-    .then((res) => res.json())
-    .then((data) => setCategories(data.categories))
-      return () => {
-        setCategories(null)
-      }
-    }, [])
-    
-
   return (
-    <>
-      <SearchFood/>
-    {categories ?
-      <>
-        <Categories categories={categories} />
-      </>
-    : <h2>{isLoading}</h2>
-    }
-    </>
+    <div className='pageWrapper'>
+      <Header />
+      <SearchFood />
+        <div className='welcomeTextImg'>
+          <div className='welcomeText'>
+            <h1>Welcome!</h1><br />
+            <p>Here you find delicious recipies!</p>
+          </div>
+          <img src={pancakesImg} alt="tacos" />
+        </div>
+    </div>
   )
 }
 

@@ -15,8 +15,8 @@ const FoodByCategory = ({ categoryMeals }) => {
     }
 
   return (
-      <div style={{display: "flex"}}>   
-        <ul>
+      <div>   
+        <ul style={{display: "flex"}}>
             {categoryMeals.map((meal, idx) => (
                 <li key={idx} onClick={() => displaySingleFood(meal)}>
                     <h3>{meal.strMeal}</h3>
