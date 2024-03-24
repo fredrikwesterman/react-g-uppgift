@@ -25,6 +25,7 @@ const SearchFood = () => {
 
     const resetList = () => {
       setMeals(null)
+      setNoResult(false)
     }
 
   return (
