@@ -1,5 +1,7 @@
 import { useState } from "react"
 import DisplaySingleMeal from "./DisplaySingleMeal"
+import cardStyling from '../styles/SearchFood.module.css'
+import categoriesStyle from '../styles/Categories.module.css'
 
 const FoodByCategory = ({ categoryMeals }) => {
 
@@ -16,15 +18,15 @@ const FoodByCategory = ({ categoryMeals }) => {
 
   return (
       <div>   
-        <ul style={{display: "flex"}}>
+        {singleMeal && openModal && <DisplaySingleMeal meal={singleMeal} OpenModal={setOpenModal}/>}
+        <ul className={categoriesStyle.categoriesMeals}>
             {categoryMeals.map((meal, idx) => (
-                <li key={idx} onClick={() => displaySingleFood(meal)}>
+                <li key={idx} className={cardStyling.mealCardSmall} onClick={() => displaySingleFood(meal)}>
+                    <img src={meal.strMealThumb} alt={meal.strMeal} className={cardStyling.imgSmall}/>
                     <h3>{meal.strMeal}</h3>
-                    <img src={meal.strMealThumb} alt={meal.strMeal} style={{width: "100px", height: "100px"}} />
                 </li>
             ))}
         </ul>
-        {singleMeal && openModal && <DisplaySingleMeal meal={singleMeal} OpenModal={setOpenModal}/>}
     </div>
   )
 }

@@ -76,6 +76,7 @@
     text-align: center;
     padding: 5px;
     margin: 20px;
+    list-style-type: none;
 }
 
 .mealCardBig {

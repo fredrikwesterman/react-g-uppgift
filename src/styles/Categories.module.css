@@ -1,0 +1,47 @@
+li {
+    list-style-type: none;
+}
+
+.categorieWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.minimizeBtn {
+    align-self: center;
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.minimizeBtn:hover {
+    cursor: pointer;
+}
+
+.categoriesUl ul {
+    display: flex;
+    margin: 50px auto 20px auto;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.categoriesUl ul li {
+    list-style-type: none;
+    font-family: 'Montserrat', 'sans-serif';
+    border: 2px solid rgba(218,102,123,1);
+    border-radius: 15px;
+    padding: 7px;
+    font-size: 10px;
+}
+
+.categoriesUl ul li:hover {
+    background-color: rgba(218,102,123,1);
+    cursor: pointer;
+}
+
+.categoriesMeals {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+}

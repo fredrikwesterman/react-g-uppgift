@@ -20,18 +20,16 @@ const CategoriesPage = () => {
       
 
   return (
-    <>
-    <Header />
-    <SearchFood />
-    <div>
-        {categories ?
-            <>
-                <Categories categories={categories} />
-            </>
-        : <h2>{isLoading}</h2>
-        }
-    </div>
-</>
+    <div className='pageWrapper'>
+      <Header />
+      <SearchFood />
+          {categories ?
+              <>
+                  <Categories categories={categories} />
+              </>
+          : <h2>{isLoading}</h2>
+          }
+  </div>
   )
 }
 

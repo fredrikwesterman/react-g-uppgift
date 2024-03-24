@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import FoodByCategory from './FoodByCategory'
+import categoriesStyle from '../styles/Categories.module.css'
 
 const Categories = ({ categories }) => {
 
@@ -18,22 +19,25 @@ const Categories = ({ categories }) => {
 
   return (
     <>
-      <div>
-        <ul style={{display: "flex"}}>
+      <div className={categoriesStyle.categoriesUl}>
+        <ul>
             {categories.map(({ strCategory, idCategory }) => (
-              <li style={{margin: "10px"}} key={idCategory} onClick={() => listCategoryMeal(strCategory)}>
+              <li key={idCategory} onClick={() => listCategoryMeal(strCategory)}>
                 <h3>{strCategory}</h3>
               </li> 
             ))}
         </ul>
       </div>
+      <div className={categoriesStyle.categorieWrapper}>
         {categoryMeals && 
-        <div>
-            <button onClick={resetMeals}>Minimize Category</button>
-            <FoodByCategory categoryMeals={categoryMeals} />
-        </div>
+        <>
+          <button className={categoriesStyle.minimizeBtn} onClick={resetMeals}>Minimize Category</button>
+          <FoodByCategory categoryMeals={categoryMeals} />
+        </>
         }
-    </>
+      </div>
+  </>
+
   )
 }
 
