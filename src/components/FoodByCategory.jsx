@@ -16,8 +16,8 @@ const FoodByCategory = ({ categoryMeals }) => {
         setOpenModal(true)
     }
 
-  return (
-      <div>   
+    return (
+        <div>   
         {singleMeal && openModal && <DisplaySingleMeal meal={singleMeal} OpenModal={setOpenModal}/>}
         <ul className={categoriesStyle.categoriesMeals}>
             {categoryMeals.map((meal, idx) => (
@@ -28,7 +28,7 @@ const FoodByCategory = ({ categoryMeals }) => {
             ))}
         </ul>
     </div>
-  )
+    )
 }
 
 export default FoodByCategory

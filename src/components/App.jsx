@@ -19,11 +19,11 @@ function App() {
             <br />
             <p>From food lovers, 
             <br />
-             to all other food lovers!</p>
-             <br />
+              to all other food lovers!</p>
+              <br />
             <p>Eat, Sleep, <span style={{color: "rgba(218,102,123,1)"}}><b>Repeat!</b></span></p>
             <br />
-             <NavLink to='/categories' className="categoryBreadLink">Categories ➡</NavLink>
+              <NavLink to='/categories' className="categoryBreadLink">Categories ➡</NavLink>
           </div>
           <img src={pancakesImg} alt="tacos" />
         </div>

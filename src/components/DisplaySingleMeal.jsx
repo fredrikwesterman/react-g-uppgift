@@ -30,7 +30,9 @@ const DisplaySingleMeal = ({ meal, OpenModal }) => {
                 </ul>
             </div>
                 <p><b>Cooking Instructions:</b></p>
-                <p>{meal.strInstructions}</p>
+                {meal.strInstructions.split('\n\r').map((instr, idx) => (
+                    <p style={{textAlign: 'left', padding: '5px'}} key={idx}>{instr}</p>
+                ))}
         </div>
     )
 }

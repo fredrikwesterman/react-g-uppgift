@@ -7,6 +7,7 @@ const FoodList = ({ food }) => {
   const [selectedMeal, setSelectedMeal] = useState(null)
   const [openModal, setOpenModal] = useState(false)
 
+  
   const displayFoodDetails = (meal) => {
     setSelectedMeal(meal)
     setOpenModal(true)
